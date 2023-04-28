@@ -26,7 +26,7 @@ Vgorro (potencial igual), función de onda inicial, y calcular alfa.
 
 #define N 100
 #define h 0.01
-#define itertemp 1e5
+#define itertemp 1e3
 #define pi 3.1415926536
 
 using namespace std;
@@ -85,13 +85,13 @@ int main(void) {
         iteracion(alfa, funconda, sgorro);
 
         // Escribo los datos, solo algunas veces
-        if(k%100==0) {
+        //if(k%100==0) {
             fichero << "\n";
             fich_norma << "\n";
 
             for(int j=0; j<=N; j++) fichero << j << "," << norm(funconda[j]) << "," << potencialgorro[j] << "\n";
             fich_norma << norma(funconda);
-        }
+        //}
 
     }
 
