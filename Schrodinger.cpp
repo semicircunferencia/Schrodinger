@@ -75,7 +75,7 @@ int main(void) {
     fich_norma.open("norma.dat");
 
     // Escribo la situación inicial
-    for(int j=0; j<=N; j++) fichero << j << "," << norm(funconda[j]) << "," << potencialgorro[j];
+    for(int j=0; j<=N; j++) fichero << j << "," << norm(funconda[j]) << "," << potencialgorro[j] << "\n";
     fich_norma << norma(funconda);
 
     // Itero en el tiempo
@@ -87,7 +87,7 @@ int main(void) {
         iteracion(alfa, funconda, sgorro);
 
         // La escribo
-        for(int j=0; j<=N; j++) fichero << j << "," << norm(funconda[j]) << "," << potencialgorro[j];
+        for(int j=0; j<=N; j++) fichero << j << "," << norm(funconda[j]) << "," << potencialgorro[j] << "\n";
         fich_norma << norma(funconda);
 
     }
