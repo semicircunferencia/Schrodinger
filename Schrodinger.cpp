@@ -80,19 +80,23 @@ int main(void) {
 
     // Itero en el tiempo
     for(int k=1; k<itertemp; k++) {
-        fichero << "\n";
-        fich_norma << "\n";
 
         // Calculo la siguiente función de onda
         iteracion(alfa, funconda, sgorro);
 
-        // La escribo
-        for(int j=0; j<=N; j++) fichero << j << "," << norm(funconda[j]) << "," << potencialgorro[j] << "\n";
-        fich_norma << norma(funconda);
+        // Escribo los datos, solo algunas veces
+        if(k%100==0) {
+            fichero << "\n";
+            fich_norma << "\n";
+
+            for(int j=0; j<=N; j++) fichero << j << "," << norm(funconda[j]) << "," << potencialgorro[j] << "\n";
+            fich_norma << norma(funconda);
+        }
 
     }
 
     fichero.close();
+    fich_norma.close();
 
     return 0;
 }
