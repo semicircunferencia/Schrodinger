@@ -24,8 +24,7 @@ Vgorro (potencial igual), función de onda inicial, y calcular alfa.
 #include <iomanip> // Formato en los ficheros
 #include <complex>
 
-#define N 100
-#define h 0.01
+#define N 1000
 #define itertemp 1e3
 #define pi 3.1415926536
 
@@ -127,7 +126,7 @@ void inicializarfunconda(complex<double> funconda[], double k0gorro) {
     // Resto de puntos
     for(int j=1; j<N; j++) {
         aux={cos(k0gorro*j),sin(k0gorro*j)};
-        funconda[j]=exp(-8*(4*j-N)*(4*j-N)/(1.0*N*N))*aux;
+        funconda[j]=exp(-8*(4*j-N)*(4*j-N)/(0.5*N*N))*aux;
     }
 
     // Normalizo
