@@ -152,7 +152,7 @@ void calcalfa(complex<double> alfa[], double potencialgorro[], double sgorro) {
     return;
 }
 
-/*Función iteraacion. Calcula la función de onda en el siguiente step temporal. Para ello, calcula los beta_jn,
+/*Función iteracion. Calcula la función de onda en el siguiente step temporal. Para ello, calcula los beta_jn,
 usando los datos: beta_(j-1)n=-alfa_(j-1)*(b_jn - beta_jn), siendo b_jn=4*i*funconda_jn/sgorro*/
 void iteracion(complex<double> alfa[], complex<double> funconda[], double sgorro) {
 
