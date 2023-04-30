@@ -34,7 +34,7 @@ void calcpotencialgorro(double potencialgorro[], double lambda, double k0gorro);
 void inicializarfunconda(complex<double> funconda[], double k0gorro);
 void calcalfa(complex<double> alfa[], double potencialgorro[], double sgorro);
 void iteracion(complex<double> alfa[], complex<double> funconda[], double sgorro);
-double norma(complex<double> funconda[]);
+double normacuad(complex<double> funconda[]);
 
 /**************************************************** FUNCIÓN PRINCIPAL ****************************************************/
 int main(void) {
@@ -71,11 +71,11 @@ int main(void) {
     ofstream fichero;
     ofstream fich_norma;
     fichero.open("schrodinger_data.dat");
-    fich_norma.open("norma.dat");
+    fich_norma.open("normacuad.dat");
 
     // Escribo la situación inicial
     for(int j=0; j<=N; j++) fichero << j << "," << norm(funconda[j]) << "," << potencialgorro[j] << "\n";
-    fich_norma << norma(funconda);
+    fich_norma << normacuad(funconda);
 
     // Itero en el tiempo
     for(int k=1; k<itertemp; k++) {
@@ -89,7 +89,7 @@ int main(void) {
             fich_norma << "\n";
 
             for(int j=0; j<=N; j++) fichero << j << "," << norm(funconda[j]) << "," << potencialgorro[j] << "\n";
-            fich_norma << norma(funconda);
+            fich_norma << normacuad(funconda);
         //}
 
     }
@@ -130,7 +130,7 @@ void inicializarfunconda(complex<double> funconda[], double k0gorro) {
     }
 
     // Normalizo
-    denominador=sqrt(norma(funconda));
+    denominador=sqrt(normacuad(funconda));
     for(int j=1; j<N; j++) funconda[j]=funconda[j]/denominador;
 
     return;
@@ -179,8 +179,8 @@ void iteracion(complex<double> alfa[], complex<double> funconda[], double sgorro
     return;
 }
 
-/*Función norma. Devuelve la norma de la función de onda. Asume que funconda[0]=funconda[N]=0*/
-double norma(complex<double> funconda[]) {
+/*Función normacuad. Devuelve la norma al cuadrado de la función de onda. Asume que funconda[0]=funconda[N]=0*/
+double normacuad(complex<double> funconda[]) {
     
     double suma=0;
     for(int j=1; j<N; j++) suma+=norm(funconda[j]);
